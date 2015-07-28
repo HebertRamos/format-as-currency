@@ -46,7 +46,9 @@ angular
       throw new TypeError ('formatAsCurrencyUtilities#toFloat expects its 1st argument to be a String, but was given ' + currencyString)
     }
 
-    return parseFloat(currencyString.replace(/(\$|\,)+/g, ''), 10)
+	currencyString = currencyString.replace(/(\$)+/g, '');
+	currencyString = currencyString.replace(/(\,)+/g, '.');
+    return parseFloat(currencyString, 10)
   }
 
 })
